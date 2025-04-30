@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, Prefab, instantiate, UITransform, Vec3, Sprite, Label, Button, resources, SpriteFrame } from 'cc';
 import { GameController } from './GameController';
 import { StoryLoader } from './StoryLoader';
+import { ResourceTester } from './ResourceTester';
 
 const { ccclass, property } = _decorator;
 
@@ -21,9 +22,24 @@ export class SceneBuilder extends Component {
         // Создаем узел для фона
         const backgroundNode = new Node('Background');
         backgroundNode.addComponent(UITransform).setContentSize(1280, 720);
-        const bgSprite = backgroundNode.addComponent(Sprite);
+        backgroundNode.addComponent(Sprite);
         backgroundNode.layer = this.node.layer;
         this.node.addChild(backgroundNode);
+        
+        // Тестовые ноды для ResourceTester
+        const testBackgroundNode = new Node('TestBackground');
+        testBackgroundNode.addComponent(UITransform).setContentSize(400, 300);
+        testBackgroundNode.addComponent(Sprite);
+        testBackgroundNode.position = new Vec3(400, 300, 0);
+        testBackgroundNode.layer = this.node.layer;
+        this.node.addChild(testBackgroundNode);
+        
+        const testCharacterNode = new Node('TestCharacter');
+        testCharacterNode.addComponent(UITransform).setContentSize(200, 400);
+        testCharacterNode.addComponent(Sprite);
+        testCharacterNode.position = new Vec3(-400, 300, 0);
+        testCharacterNode.layer = this.node.layer;
+        this.node.addChild(testCharacterNode);
         
         // Слой персонажей
         const charactersLayer = new Node('Characters');
@@ -109,6 +125,11 @@ export class SceneBuilder extends Component {
         // Добавляем StoryLoader
         this.node.addComponent(StoryLoader);
         
-        console.log("Сцена успешно создана");
+        // Добавляем ResourceTester
+        const resourceTester = this.node.addComponent(ResourceTester);
+        resourceTester.testBackgroundNode = testBackgroundNode;
+        resourceTester.testCharacterNode = testCharacterNode;
+        
+        console.log("Scene successfully created");
     }
 }

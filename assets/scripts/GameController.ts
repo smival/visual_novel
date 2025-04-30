@@ -33,6 +33,10 @@ export class GameController extends Component {
     private currentNodeId: string | null = null;
     
     start() {
+        // Temporarily disabled story loading for testing ResourceTester
+        //console.log("GameController: Story loading disabled for testing");
+        
+        
         // Загружаем сюжет и начинаем игру
         StoryLoader.instance.loadStory('data/story', (story) => {
             this.currentNodeId = story.firstNodeId;
@@ -79,60 +83,57 @@ export class GameController extends Component {
      * @param backgroundImage Имя файла фонового изображения
      */
     setBackground(backgroundImage: string) {
-        console.log(`Загрузка фона: backgrounds/${backgroundImage}`);
-        resources.load(`backgrounds/${backgroundImage}`, Texture2D, (err, texture: Texture2D) => {
+        // Fix the path to include the /spriteFrame suffix
+        resources.load(`backgrounds/${backgroundImage}/spriteFrame`, SpriteFrame, (err, spriteFrame) => {
             if (err) {
-                console.error(`Ошибка загрузки фона: ${err}, путь: backgrounds/${backgroundImage}`);
+                console.error(`Error loading background: ${err}, path: backgrounds/${backgroundImage}/spriteFrame`);
                 return;
             }
+            
             if (this.backgroundNode) {
                 const sprite = this.backgroundNode.getComponent(Sprite);
                 if (sprite) {
-                    const spriteFrame = new SpriteFrame();
-                    spriteFrame.texture = texture;
                     sprite.spriteFrame = spriteFrame;
-                    console.log(`Фон успешно установлен: ${backgroundImage}`);
+                    console.log(`Background loaded successfully: ${backgroundImage}`);
                 }
             }
         });
     }
     
     /**
-     * Устанавливает персонажа
-     * @param position Позиция персонажа (left или right)
-     * @param character Данные персонажа
+     * Sets character sprite based on character image name
+     * @param position Position of the character (left or right)
+     * @param character Character data
      */
     setCharacter(position: 'left' | 'right', character: { name: string, image: string, emotion: string } | null) {
         const characterNode = position === 'left' ? this.leftCharacterNode : this.rightCharacterNode;
         
         if (!characterNode) return;
         
-        // Если персонажа нет, скрываем ноду
+        // If character is null, hide the node
         if (!character) {
             characterNode.active = false;
             return;
         }
         
-        // Показываем ноду и устанавливаем изображение персонажа
+        // Show the node and set character image
         characterNode.active = true;
         
-        // Просто берём путь к изображению из файла story.json
-        const imagePath = `characters/${character.image}`;
+        // Fix the path to include the /spriteFrame suffix
+        const imagePath = `characters/${character.image}/spriteFrame`;
         
-        console.log(`Загрузка изображения персонажа: ${imagePath}`);
+        console.log(`Loading character image: ${imagePath}`);
         
         resources.load(imagePath, SpriteFrame, (err, spriteFrame) => {
             if (err) {
-                console.error(`Ошибка загрузки персонажа: ${err}, путь: ${imagePath}`);
+                console.error(`Error loading character: ${err}, path: ${imagePath}`);
                 return;
             }
             
-            if (characterNode) {
-                const sprite = characterNode.getComponent(Sprite);
-                if (sprite) {
-                    sprite.spriteFrame = spriteFrame;
-                    console.log(`Персонаж успешно установлен: ${imagePath}`);
-                }
+            const sprite = characterNode.getComponent(Sprite);
+            if (sprite) {
+                sprite.spriteFrame = spriteFrame;
+                console.log(`Character successfully set: ${character.image} at ${position}`);
             }
         });
     }
