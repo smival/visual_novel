@@ -1,0 +1,86 @@
+{
+  "title": "Пример сюжета",
+  "author": "AI",
+  "firstNodeId": "start",
+  "nodes": {
+    "start": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Ученик",
+          "image": "student_neutral",
+          "emotion": "happy"
+        },
+        "right": null
+      },
+      "text": "Привет! Это пример диалога в визуальной новелле.",
+      "nextNodeId": "question1"
+    },
+    "question1": {
+      "type": "choice",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Ученик",
+          "image": "student_neutral",
+          "emotion": "question"
+        },
+        "right": null
+      },
+      "text": "Как ты думаешь, что мы будем делать дальше?",
+      "choices": [
+        {
+          "text": "Пойдем в парк",
+          "nextNodeId": "park"
+        },
+        {
+          "text": "Останемся в классе",
+          "nextNodeId": "classroom"
+        }
+      ]
+    },
+    "park": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Ученик",
+          "image": "student_neutral",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Друг",
+          "image": "friend",
+          "emotion": "smile"
+        }
+      },
+      "text": "Хорошо, давай пойдем в парк!",
+      "nextNodeId": "end"
+    },
+    "classroom": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Ученик",
+          "image": "student",
+          "emotion": "neutral"
+        },
+        "right": null
+      },
+      "text": "Хорошо, останемся в классе и поговорим.",
+      "nextNodeId": "end"
+    },
+    "end": {
+      "type": "dialogue",
+      "background": "sunset",
+      "character": {
+        "left": null,
+        "right": null
+      },
+      "text": "Конец демо-сюжета",
+      "nextNodeId": null
+    }
+  }
+}
