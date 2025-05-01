@@ -28,15 +28,14 @@ export class GameController extends Component {
     choiceContainer: Node = null;
     
     @property(Node)
-    choiceButtonPrefab: Node = null;
+    choiceItemsContainer: Node = null;
+    
+    @property(Prefab)
+    choiceButtonPrefab: Prefab = null;
     
     private currentNodeId: string | null = null;
     
-    start() {
-        // Temporarily disabled story loading for testing ResourceTester
-        //console.log("GameController: Story loading disabled for testing");
-        
-        
+    start() {    
         // Загружаем сюжет и начинаем игру
         StoryLoader.instance.loadStory('data/story', (story) => {
             this.currentNodeId = story.firstNodeId;
@@ -163,7 +162,7 @@ export class GameController extends Component {
         this.choiceContainer.active = true;
         
         // Очищаем существующие кнопки выбора
-        this.choiceContainer.removeAllChildren();
+        this.choiceItemsContainer.removeAllChildren();
         
         // Создаем кнопки для каждого варианта выбора
         node.choices.forEach((choice, index) => {
@@ -181,18 +180,12 @@ export class GameController extends Component {
         
         // Клонируем префаб кнопки
         const button = instantiate(this.choiceButtonPrefab);
-        this.choiceContainer.addChild(button);
+        this.choiceItemsContainer.addChild(button);
         
         // Устанавливаем текст кнопки
         const buttonLabel = button.getComponent(Label);
         if (buttonLabel) {
             buttonLabel.string = choice.text;
-        }
-        
-        // Устанавливаем позицию кнопки
-        const uiTransform = button.getComponent(UITransform);
-        if (uiTransform) {
-            button.position.set(0, -index * (uiTransform.height + 10), 0);
         }
         
         // Добавляем обработчик нажатия

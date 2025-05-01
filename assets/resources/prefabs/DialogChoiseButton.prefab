@@ -73,8 +73,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 215.64995237516214,
-      "height": 50.400000000000006
+      "width": 219.68359375,
+      "height": 104.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -104,18 +104,18 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 248,
+      "g": 89,
+      "b": 89,
       "a": 255
     },
     "_string": "your_choise",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 48.1875,
+    "_actualFontSize": 40,
     "_fontSize": 40,
     "_fontFamily": "Arial",
-    "_lineHeight": 40,
+    "_lineHeight": 80,
     "_overflow": 0,
     "_enableWrapText": true,
     "_font": null,
@@ -126,7 +126,7 @@
     "_isUnderline": false,
     "_underlineHeight": 2,
     "_cacheMode": 0,
-    "_enableOutline": false,
+    "_enableOutline": true,
     "_outlineColor": {
       "__type__": "cc.Color",
       "r": 0,

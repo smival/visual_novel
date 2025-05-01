@@ -1,15 +1,22 @@
 # Changelog
 
-## [0.0.1] - 2025-05-01
+## [0.2.0] - 2025-05-01
 
 ### Added
-- Basic project structure
-- Story loading and display system from JSON file
-- Automatic scene building (SceneBuilder)
-- Core components: GameController, StoryLoader, types
-- Dialog system with support for character and background changes
-- Choice system with support for multiple options
-- First demo story with two locations and characters
+- Added proper resource loading with /spriteFrame suffix
+- Migrated from code-based scene building to editor-based scene creation
+- Added nested container structure for choice buttons
+- Removed SceneBuilder class as it's no longer needed
+- Fixed image loading in GameController for both backgrounds and characters
+
+## [0.1.0] - 2025-04-30
+
+### Added
+- Initial project setup
+- Basic visual novel functionality
+- Story loading from JSON file
+- Dialogue and choice system
+- Character and background display
 
 ### Technical Features
 - Dynamic resource loading (images) during gameplay
