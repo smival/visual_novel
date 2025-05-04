@@ -37,6 +37,7 @@ export class GameController extends Component {
     
     start() {    
         // Загружаем сюжет и начинаем игру
+        // Путь к сюжету не меняем, так как Cocos Creator уже ищет файл в папке resources
         StoryLoader.instance.loadStory('data/story', (story) => {
             this.currentNodeId = story.firstNodeId;
             this.displayNode(this.currentNodeId);

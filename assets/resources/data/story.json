@@ -8,78 +8,1093 @@
       "background": "classroom",
       "character": {
         "left": {
-          "name": "Ученик",
-          "image": "student_neutral",
-          "emotion": "happy"
-        },
-        "right": null
-      },
-      "text": "Привет! Это пример диалога в визуальной новелле.",
-      "nextNodeId": "question1"
-    },
-    "question1": {
-      "type": "choice",
-      "background": "classroom",
-      "character": {
-        "left": {
-          "name": "Ученик",
-          "image": "student_question",
-          "emotion": "question"
-        },
-        "right": null
-      },
-      "text": "Как ты думаешь, что мы будем делать дальше?",
-      "choices": [
-        {
-          "text": "Пойдем в парк",
-          "nextNodeId": "park"
-        },
-        {
-          "text": "Останемся в классе",
-          "nextNodeId": "classroom"
-        }
-      ]
-    },
-    "park": {
-      "type": "dialogue",
-      "background": "park",
-      "character": {
-        "left": {
-          "name": "Ученик",
-          "image": "student_happy",
-          "emotion": "happy"
-        },
-        "right": {
-          "name": "Друг",
-          "image": "friend_smile",
-          "emotion": "smile"
-        }
-      },
-      "text": "Хорошо, давай пойдем в парк!",
-      "nextNodeId": "end"
-    },
-    "classroom": {
-      "type": "dialogue",
-      "background": "classroom",
-      "character": {
-        "left": {
-          "name": "Ученик",
+          "name": "Учитель",
           "image": "student_neutral",
           "emotion": "neutral"
         },
         "right": null
       },
-      "text": "Хорошо, останемся в классе и поговорим.",
-      "nextNodeId": "end"
+      "speaker": "Учитель",
+      "text": "Добро пожаловать в новый учебный год! Сегодня у нас особенный день - мы познакомимся с новым учеником.",
+      "nextNodeId": "intro_friend"
     },
-    "end": {
+    "intro_friend": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Учитель",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Новенький",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Учитель",
+      "text": "Это Алекс. Он перевелся к нам из другой школы. Пожалуйста, помогите ему освоиться.",
+      "nextNodeId": "teacher_leaves"
+    },
+    "teacher_leaves": {
       "type": "dialogue",
       "background": "classroom",
       "character": {
         "left": null,
-        "right": null
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
       },
-      "text": "Конец демо-сюжета",
+      "speaker": "Алекс",
+      "text": "Привет! Меня зовут Алекс. Я только переехал в этот город. Надеюсь, мы подружимся.",
+      "nextNodeId": "first_choice"
+    },
+    "first_choice": {
+      "type": "choice",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "Как вы хотите отреагировать?",
+      "choices": [
+        {
+          "text": "Дружелюбно поприветствовать",
+          "nextNodeId": "friendly_greeting"
+        },
+        {
+          "text": "Спросить о его прежней школе",
+          "nextNodeId": "ask_about_school"
+        },
+        {
+          "text": "Предложить показать школу",
+          "nextNodeId": "offer_tour"
+        }
+      ]
+    },
+    "friendly_greeting": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Привет, Алекс! Рад знакомству. Я могу помочь тебе освоиться здесь. Не стесняйся спрашивать, если что-то понадобится.",
+      "nextNodeId": "alex_happy_response"
+    },
+    "alex_happy_response": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Спасибо! Это очень мило с твоей стороны. Я немного волновался о первом дне, но теперь чувствую себя лучше.",
+      "nextNodeId": "lunch_invitation"
+    },
+    "ask_about_school": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Алекс, а как твоя прежняя школа? Чем она отличается от нашей?",
+      "nextNodeId": "alex_school_response"
+    },
+    "alex_school_response": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Она была меньше, и у нас был сильный акцент на науку. Здесь, кажется, больше возможностей для разных кружков и занятий.",
+      "nextNodeId": "lunch_invitation"
+    },
+    "offer_tour": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Хочешь, я покажу тебе школу? У нас есть отличная библиотека, спортзал и научные лаборатории.",
+      "nextNodeId": "alex_tour_response"
+    },
+    "alex_tour_response": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Это было бы здорово! Я как раз хотел узнать, где что находится. Спасибо за предложение!",
+      "nextNodeId": "lunch_invitation"
+    },
+    "lunch_invitation": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Хочешь пойти со мной на обед? Мы можем познакомиться лучше.",
+      "nextNodeId": "lunch_choice"
+    },
+    "lunch_choice": {
+      "type": "choice",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "Как вы хотите провести обед?",
+      "choices": [
+        {
+          "text": "Посидеть в столовой",
+          "nextNodeId": "cafeteria_lunch"
+        },
+        {
+          "text": "Пойти в парк на пикник",
+          "nextNodeId": "park_lunch"
+        }
+      ]
+    },
+    "cafeteria_lunch": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Столовая звучит хорошо. Я еще не знаю, где она находится.",
+      "nextNodeId": "cafeteria_conversation"
+    },
+    "cafeteria_conversation": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Наша столовая довольно большая. Еда там не отличная, но сегодня день пиццы, так что нам повезло!",
+      "nextNodeId": "lunch_conversation_topic"
+    },
+    "park_lunch": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "В парке рядом со школой всегда тихо в это время. Я часто беру обед с собой и ем там, когда погода хорошая.",
+      "nextNodeId": "park_conversation"
+    },
+    "park_conversation": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Здесь действительно красиво! В моем старом городе не было такого парка рядом со школой.",
+      "nextNodeId": "lunch_conversation_topic"
+    },
+    "lunch_conversation_topic": {
+      "type": "choice",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "О чем вы хотите поговорить?",
+      "choices": [
+        {
+          "text": "О хобби и увлечениях",
+          "nextNodeId": "hobby_talk"
+        },
+        {
+          "text": "О планах на будущее",
+          "nextNodeId": "future_talk"
+        },
+        {
+          "text": "О предстоящих школьных мероприятиях",
+          "nextNodeId": "event_talk"
+        }
+      ]
+    },
+    "hobby_talk": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Чем ты увлекаешься в свободное время? Я, например, люблю читать научную фантастику и играть в видеоигры.",
+      "nextNodeId": "alex_hobby_response"
+    },
+    "alex_hobby_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Я люблю играть в футбол и слушать музыку. А ты знаешь, что у нас будет футбольный матч на следующей неделе?",
+      "nextNodeId": "join_team_offer"
+    },
+    "join_team_offer": {
+      "type": "choice",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "Алекс предлагает вам вместе записаться в футбольную команду...",
+      "choices": [
+        {
+          "text": "Согласиться - звучит интересно",
+          "nextNodeId": "accept_football"
+        },
+        {
+          "text": "Отказаться - это не моё",
+          "nextNodeId": "reject_football"
+        }
+      ]
+    },
+    "future_talk": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "А есть ли у тебя планы на будущее? Кем ты хочешь стать после школы?",
+      "nextNodeId": "alex_future_response"
+    },
+    "alex_future_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Я мечтаю стать архитектором или инженером. Мне всегда нравилось строить и создавать что-то новое. А ты?",
+      "nextNodeId": "your_future_choice"
+    },
+    "your_future_choice": {
+      "type": "choice",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "text": "Что вы ответите?",
+      "choices": [
+        {
+          "text": "Я хочу стать ученым",
+          "nextNodeId": "scientist_path"
+        },
+        {
+          "text": "Я интересуюсь искусством",
+          "nextNodeId": "artist_path"
+        },
+        {
+          "text": "Еще не определился",
+          "nextNodeId": "undecided_path"
+        }
+      ]
+    },
+    "event_talk": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Скоро у нас будет ежегодный школьный фестиваль. Каждый класс готовит свой проект. Обычно это очень весело!",
+      "nextNodeId": "alex_event_response"
+    },
+    "alex_event_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Звучит здорово! В моей прежней школе не было таких мероприятий. Я бы хотел поучаствовать. Какие идеи для проекта есть у твоего класса?",
+      "nextNodeId": "festival_project_choice"
+    },
+    "festival_project_choice": {
+      "type": "choice",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "Какой проект предложить?",
+      "choices": [
+        {
+          "text": "Научная выставка",
+          "nextNodeId": "science_project"
+        },
+        {
+          "text": "Театральная постановка",
+          "nextNodeId": "theater_project"
+        },
+        {
+          "text": "Кафе с домашней выпечкой",
+          "nextNodeId": "cafe_project"
+        }
+      ]
+    },
+    "accept_football": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Я не очень хорошо играю, но это звучит интересно. Давай запишемся вместе!",
+      "nextNodeId": "football_success"
+    },
+    "football_success": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Здорово! Я могу помочь тебе с тренировками. Через месяц мы сможем подготовиться к школьному чемпионату. Это будет весело!",
+      "nextNodeId": "end_sports"
+    },
+    "reject_football": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Спорт - не совсем моё. Я лучше буду болеть за вас с трибуны!",
+      "nextNodeId": "football_alternative"
+    },
+    "football_alternative": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Понимаю. Может, ты хочешь помочь команде по-другому? Нам нужен человек для ведения статистики или фотографирования игр для школьной газеты.",
+      "nextNodeId": "team_helper_choice"
+    },
+    "team_helper_choice": {
+      "type": "choice",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_question",
+          "emotion": "question"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "text": "Как вы хотите помочь команде?",
+      "choices": [
+        {
+          "text": "Стать фотографом команды",
+          "nextNodeId": "photographer_path"
+        },
+        {
+          "text": "Вести статистику матчей",
+          "nextNodeId": "statistician_path"
+        },
+        {
+          "text": "Отказаться, предложить другую активность",
+          "nextNodeId": "suggest_club"
+        }
+      ]
+    },
+    "photographer_path": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Я мог бы делать фотографии для школьной газеты. У меня как раз есть хороший фотоаппарат.",
+      "nextNodeId": "end_photographer"
+    },
+    "statistician_path": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Я люблю анализировать данные. Могу вести статистику команды и помогать улучшать стратегию.",
+      "nextNodeId": "end_statistician"
+    },
+    "scientist_path": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Я всегда мечтал стать ученым. Меня особенно интересует физика и астрономия.",
+      "nextNodeId": "alex_science_response"
+    },
+    "alex_science_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Это круто! У нас в школе отличный научный клуб. Ты уже записался? Может, мы могли бы вместе подготовить проект для научной выставки.",
+      "nextNodeId": "end_science"
+    },
+    "artist_path": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Я увлекаюсь искусством. Мне нравится рисовать и заниматься фотографией.",
+      "nextNodeId": "alex_art_response"
+    },
+    "alex_art_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Это замечательно! Мне как инженеру не хватает художественных навыков. Может, ты поможешь с оформлением моих проектов? А я могу помочь тебе с технической частью.",
+      "nextNodeId": "end_art"
+    },
+    "undecided_path": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Честно говоря, я еще не определился. Есть много интересных направлений, и я хочу попробовать разные вещи.",
+      "nextNodeId": "alex_undecided_response"
+    },
+    "alex_undecided_response": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Алекс",
+      "text": "Это нормально! У тебя еще есть время решить. Давай будем вместе исследовать разные клубы и мероприятия, чтобы найти то, что тебе действительно нравится.",
+      "nextNodeId": "end_exploration"
+    },
+    "science_project": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Как насчет научной выставки? Мы могли бы сделать интерактивные демонстрации физических явлений или робототехники.",
+      "nextNodeId": "end_science_fair"
+    },
+    "theater_project": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Мы могли бы поставить спектакль! Это будет интересно, и каждый найдет себе роль - на сцене или за кулисами.",
+      "nextNodeId": "end_theater"
+    },
+    "cafe_project": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Давай организуем кафе с домашней выпечкой! Мы можем украсить класс, приготовить вкусности и предложить гостям фестиваля уютную атмосферу.",
+      "nextNodeId": "end_cafe"
+    },
+    "suggest_club": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_neutral",
+          "emotion": "neutral"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend",
+          "emotion": "neutral"
+        }
+      },
+      "speaker": "Вы",
+      "text": "Спорт - не совсем моё. Но, может быть, мы могли бы вместе записаться в научный клуб или кружок робототехники? Я слышал, что там интересно.",
+      "nextNodeId": "end_club"
+    },
+    "end_sports": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы вместе с Алексом записались в футбольную команду. Благодаря регулярным тренировкам вы не только улучшили свои спортивные навыки, но и стали хорошими друзьями. Ваша команда заняла второе место в школьном чемпионате!",
+      "nextNodeId": "true_end"
+    },
+    "end_photographer": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы стали официальным фотографом футбольной команды. Ваши снимки регулярно публикуются в школьной газете, и ваш талант был замечен учителями. Благодаря этому опыту вы открыли в себе новую страсть и нашли хорошего друга в лице Алекса.",
+      "nextNodeId": "true_end"
+    },
+    "end_statistician": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы стали статистиком команды и помогли разработать новую стратегию, которая привела команду к победе. Благодаря вашей аналитике, футбольная команда вышла на новый уровень, а вы с Алексом стали неразлучными друзьями.",
+      "nextNodeId": "true_end"
+    },
+    "end_science": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы вместе с Алексом подготовили впечатляющий научный проект, который занял первое место на школьной выставке и был отправлен на областной конкурс. Ваше сотрудничество переросло в крепкую дружбу, основанную на общих интересах.",
+      "nextNodeId": "true_end"
+    },
+    "end_art": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы и Алекс начали работать вместе над творческими проектами, объединяя его инженерные знания и ваше художественное видение. Ваши работы украсили школьную галерею и получили признание на городской выставке молодых талантов.",
+      "nextNodeId": "true_end"
+    },
+    "end_exploration": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "В течение следующих месяцев вы и Алекс исследовали различные клубы и мероприятия. Вы пробовали себя в науке, искусстве, музыке и даже спорте. Эти совместные приключения сблизили вас, и вы обнаружили множество новых интересов.",
+      "nextNodeId": "true_end"
+    },
+    "end_science_fair": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Ваш класс решил организовать научную выставку. Под вашим и Алекса руководством, проект стал хитом фестиваля. Посетители были в восторге от интерактивных демонстраций и экспериментов, а директор школы особо отметил вашу работу.",
+      "nextNodeId": "true_end"
+    },
+    "end_theater": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Театральная постановка стала настоящим событием фестиваля. Вы помогли с написанием сценария, а Алекс проявил неожиданный талант к актерской игре. Ваша дружба окрепла в процессе репетиций, и вы открыли в себе новые таланты.",
+      "nextNodeId": "true_end"
+    },
+    "end_cafe": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Кафе с домашней выпечкой оказалось самым популярным местом на всем фестивале. Ваш класс не только получил приз за лучший проект, но и собрал средства для благотворительности. А вы с Алексом открыли в себе предпринимательские таланты.",
+      "nextNodeId": "true_end"
+    },
+    "end_club": {
+      "type": "dialogue",
+      "background": "classroom",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Вы вместе записались в кружок робототехники. Оказалось, что вы отлично дополняете друг друга: ваши аналитические способности и креативность Алекса помогли команде создать уникального робота для городских соревнований.",
+      "nextNodeId": "true_end"
+    },
+    "true_end": {
+      "type": "dialogue",
+      "background": "park",
+      "character": {
+        "left": {
+          "name": "Вы",
+          "image": "student_happy",
+          "emotion": "happy"
+        },
+        "right": {
+          "name": "Алекс",
+          "image": "friend_smile",
+          "emotion": "happy"
+        }
+      },
+      "speaker": "Рассказчик",
+      "text": "Это был только первый день из многих. Впереди вас ждало множество приключений, испытаний и побед. Но самое главное - вы нашли настоящего друга, с которым готовы встретить любые вызовы. Продолжение следует...",
       "nextNodeId": null
     }
   }
